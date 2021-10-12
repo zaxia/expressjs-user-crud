@@ -1,0 +1,88 @@
+<%- include('./../partials/header'); -%>
+<br>
+<div id="app" class="container">
+	<h2>Utilisateurs</h2>
+	<span>liste des utilisateurs</span>
+	<hr>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text">Recherche</span>
+			  </div>
+			  <input v-model="search" v-on:keyup.enter="onSearch()" type="text" class="form-control" placeholder="Rechercher un utilisateur">
+			</div>
+		</div>
+		<div class="col-md-2">
+			<button @click="onAdd()" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block">Ajouter</button>
+		</div>
+	</div>
+	<table class="table table-bordered table-sm">
+	    <thead class="thead-dark">
+	      <tr>
+	        <th>Identifiant</th>
+	        <th>Nom complet</th>
+	        <th>Date de création</th>
+	        <th>Date de dernière modification</th>
+	        <th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr v-for="item in users">
+	        <td width="80">{{item.login}}</td>
+	        <td>{{item.firstname}} {{item.lastname}}</td>
+	        <td>{{item.createdAt}}</td>
+	        <td>{{item.updatedAt}}</td>
+	        <td width="120">
+	        	<button @click="onEdit(item)" class="btn btn-info btn-sm">Modifier</button>
+          		<button @click="onDelete(item)" class="btn btn-danger btn-sm">Supprimer</button>
+	        </td>
+	      </tr>
+	    </tbody>
+	</table>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Formulaire Utilisateur</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			  <div class="form-group">
+			    <label>Identifiant</label>
+			    <input v-model="user.login" @change="checkUsername" type="text" class="form-control" placeholder="Identifiant" required>
+                <span id="result-login"></span>
+			  </div>
+			  <div class="form-group">
+			    <label>Prénom</label>
+			    <input v-model="user.firstname" type="text" class="form-control" placeholder="Prénom">
+			  </div>
+			  <div class="form-group">
+			    <label>Nom</label>
+			    <input v-model="user.lastname" type="text" class="form-control" placeholder="Nom">
+			  </div>
+			  <div class="password form-group">
+			    <label>Mot de passe</label>
+			    <input id="password" @change="checkPassword" v-model="user.password" type="password" class="form-control" placeholder="Mot de passe" required>
+                <span id="result-password"></span>
+			  </div>
+			  <div class="password form-group">
+			    <label>Confirmer les mot de passe</label>
+			    <input id="confirm" @change="checkConfirm()" type="password" class="form-control" placeholder="Confirmer les mot de passe">
+                <span id="result-confirm"></span>
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+	        <button :disabled="!user.login" @click="onSave()" class="btn btn-primary">{{btn_text}}</button>
+	      </div>
+	    </div>
+		
+	  </div>
+	</div>
+</div>
+<script src="/public/app/js/user/list_vue.js"></script>
+<script src="/public/app/js/user/list.js"></script>
+<%- include('./../partials/footer'); -%>

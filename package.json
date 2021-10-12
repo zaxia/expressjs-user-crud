@@ -1,0 +1,24 @@
+{
+  "name": "crud_express_sequelize",
+  "version": "1.0.0",
+  "description": "Basic simple example sequelize orm with expressjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index",
+    "start": "node index"
+  },
+  "author": "herudi",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.0.2",
+    "sequelize": "^5.21.2",
+    "socket.io": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

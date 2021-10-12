@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "zacharie",
+      "password": "Mariana112358!",
+      "database": "base_test",
+      "host": "localhost",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "",
+      "password": "",
+      "database": "",
+      "host": "",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "",
+      "password": "",
+      "database": "",
+      "host": "",
+      "dialect": "mysql"
+    }
+}
