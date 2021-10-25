@@ -1,0 +1,20 @@
+<%- include('./../partials/header'); -%>
+<br>
+<div class="container">
+	<div class="jumbotron">
+	  <h1 class="display-4">Test email</h1>
+	</div>
+</div>
+<div id="email" class="container">
+    <form id="email_form">
+        <div class="form-inline"><label>Vers: </label><input class="form-control flex-grow-1" name="to"/></div>
+        <div class="form-inline"><label>Objet: </label><input class="form-control flex-grow-1" name="object"/></div>
+        <div><textarea class="form-control" name="mail_body" rows="10"></textarea></div>
+    </form>
+    <button id="send_email" class="btn btn-success">Envoyer</button>
+</div>
+<script>
+	var username = "<%- user.login %>";
+</script>
+<script src="/public/app/js/email/email.js"></script>
+<%- include('./../partials/footer'); -%>

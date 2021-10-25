@@ -20,7 +20,6 @@ var app = new Vue({
         },
         onSearch: function() {
             var self = this;
-            console.log(self.search);
             axios.get(BASE_API+"user/search?text="+self.search).then(function(result){
                 self.users = result.data.data;
             }, function(error){

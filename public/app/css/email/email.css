@@ -1,0 +1,7 @@
+form#email_form>div{
+    margin: 10px 0;
+}
+form#email_form>div>label{
+    width: 100px;
+    justify-content: left;
+}

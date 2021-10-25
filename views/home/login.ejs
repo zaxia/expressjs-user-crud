@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Connexion</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="/public/libs/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="/public/libs/css/sweetalert2.min.css" type="text/css" />
+</head>
+<body>
+	<script type="text/javascript">
+		(function (root) {
+          'use strict'
+          var full_url = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+"/";
+          root.BASE_API = full_url+"api_v1/";
+          root.BASE_URL = full_url;
+      })(this);
+	</script>
+	<script src="/public/libs/js/jquery.slim.min.js"></script>
+	<script src="/public/libs/js/propper.min.js"></script>
+	<script src="/public/libs/js/bootstrap.min.js"></script>
+	<script src="/public/libs/js/sweetalert2.min.js"></script>
+	<script src="/public/libs/js/axios.min.js"></script>
+	<script src="/public/libs/js/vue.min.js"></script>
+    <div id="app" class="container">
+        <h2>Connexion</h2>
+        <div class="form-group">
+            <label>Identifiant</label>
+            <input v-model="user.login" type="text" class="form-control" placeholder="Identifiant" required>
+            <span id="result-login"></span>
+        </div>
+        <div class="password form-group">
+            <label>Mot de passe</label>
+            <input id="password" v-model="user.password" type="password" class="form-control" placeholder="Mot de passe" required>
+            <span id="result-password"></span>
+        </div>
+        <button :disabled="!user.login || !user.password" @click="login()" class="btn btn-primary">Se connecter</button>
+    </div>
+    <script src="/public/app/js/home/login_vue.js"></script>
+<%- include('./../partials/footer'); -%>
