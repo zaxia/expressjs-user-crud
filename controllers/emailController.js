@@ -15,8 +15,8 @@ const transporter = nodemailer.createTransport({
 	port: 587,               // port 587 pour smtp outlook
 	host: "smtp-mail.outlook.com",
     auth: {
-        user: 'zacharie.bossard@up.coop',
-        pass: 'Cityzen51',
+        user: 'user',
+        pass: 'password',
 	},
     secureConnection: false,
     tls: {
@@ -25,8 +25,8 @@ const transporter = nodemailer.createTransport({
 });
 
 const default_mail_data = {
-	from: 'zacharie.bossard@up.coop',  // sender address
-	to: 'bossard.zacharie@hotmail.fr',   // list of receivers
+	from: 'default_from',  // sender address
+	to: 'default_to',   // list of receivers
 	subject: 'Sending test Email using Node.js',
 	html: `<b>Hey there! </b>
 			 <br> This is our test message sent with Nodemailer<br/>`,
